@@ -1,11 +1,14 @@
 <?php 
+ini_set("display_errors","on");
+
+error_reporting(-1);
 
 require_once 'includes/filter-wrapper.php';
 
 require_once 'includes/db.php';
 
 $results = $db->query(' SELECT id, movie_title, release_date, director 
-						FROM movie_database 
+						FROM movie_database
 						ORDER BY movie_title ASC
 					');
 
@@ -19,6 +22,8 @@ $results = $db->query(' SELECT id, movie_title, release_date, director
 </head>
 
 <body>
+
+<h1>My movie database:</h1>
 
 <ul>
 	<?php foreach ($results as $movie) : ?>
